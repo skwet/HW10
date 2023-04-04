@@ -1,7 +1,7 @@
 from collections import UserDict
 
 class Field:
-    def __init__(self, value=None):
+    def __init__(self, value):
         self.value = value
     
     def __str__(self) -> str:
@@ -24,14 +24,18 @@ class Record:
         self.phones.append(phone)
     
     def delete_phone(self, phone: Phone):
-        if phone in self.phones:
-            self.phones.remove(phone)
+        for i in range(len(self.phones)):
+            if self.phones[i] == phone:
+                self.phones[i] = ''
+        
+        # if phone in self.phones:
+        #     self.phones.remove(phone)
 
-    def edit_phone(self, name: Name, old_phone: Phone, new_phone: Phone):
-        for phone in self.phones:
-            if phone == old_phone:
-                self.delete_phone(phone)
-                self.add(new_phone)
+    def edit_phone(self,old_phone: Phone, new_phone:Phone):
+        for i in range(len(self.phones)):
+            if self.phones[i] == old_phone:
+                self.phones[i] = new_phone
+                
     
     def __str__(self) -> str:
         return str(f'{self.name}: {", ".join(str(p) for p in self.phones)}')

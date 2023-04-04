@@ -33,7 +33,7 @@ def change(*args):
     old_phone = Phone(input_split[1])
     new_phone= Phone(input_split[2])
     rec = Record(name,old_phone)
-    rec.edit_phone(name,old_phone,new_phone)
+    rec.edit_phone(old_phone,new_phone)
     adress_book.add_record(rec)
     if new_phone in rec.phones:
         return 'Phone has been changed'
