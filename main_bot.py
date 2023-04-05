@@ -1,4 +1,4 @@
-from dz_10 import Field,AddressBook,Record,Name,Phone
+from classes_bot import Field,AddressBook,Record,Name,Phone
 
 def input_error(func):
     def wrapper(*args):

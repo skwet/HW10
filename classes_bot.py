@@ -29,9 +29,11 @@ class Record:
                 self.phones[i] = ''
 
     def edit_phone(self,old_phone: Phone, new_phone:Phone):
-        for i in range(len(self.phones)):
-            if self.phones[i] == old_phone:
+        for i, p in enumerate(self.phones):
+            if old_phone.value == p.value:
                 self.phones[i] = new_phone
+                return f'Phone {old_phone} change on {new_phone}'
+        return f'Record dont have phone {old_phone}'
                 
     
     def __str__(self) -> str:
@@ -49,3 +51,21 @@ class AddressBook(UserDict):
             return self.data[name]
         else:
             return f'There is no contact with name {name}'
+
+if __name__ == '__main__':
+    address_book = AddressBook()
+    name = Name('Anton')
+    phone1 = Phone('+380980174612')
+    rec1 = Record(name,phone1)
+
+    phone2 = Phone('+380676741810')
+    rec1.edit_phone(phone1,phone2)
+    
+    address_book.add_record(rec1)
+    print(address_book)
+
+    # rec1.delete_phone(phone2)
+    # print(rec1)
+
+    address_book.find_phone(name)
+    
