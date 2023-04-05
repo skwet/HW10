@@ -54,11 +54,11 @@ class AddressBook(UserDict):
 
 if __name__ == '__main__':
     address_book = AddressBook()
-    name = Name('Anton')
-    phone1 = Phone('+380980174612')
+    name = Name('Bob')
+    phone1 = Phone('+0987654321')
     rec1 = Record(name,phone1)
 
-    phone2 = Phone('+380676741810')
+    phone2 = Phone('+1234567890')
     rec1.edit_phone(phone1,phone2)
     
     address_book.add_record(rec1)
